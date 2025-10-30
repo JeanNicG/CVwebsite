@@ -6,3 +6,5 @@
 !airWebsite/
 !airWebsite/**
 !docker-compose.yml
+.vscode-server/
+.vscode-server/**
