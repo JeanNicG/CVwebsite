@@ -1,0 +1,8 @@
+*
+!*/
+!.gitignore
+!cvWebsite/
+!cvWebsite/**
+!airWebsite/
+!airWebsite/**
+!docker-compose.yml
