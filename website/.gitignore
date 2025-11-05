@@ -5,6 +5,8 @@
 !cvWebsite/**
 !airWebsite/
 !airWebsite/**
+!nginx/
+!nginx/**
 !docker-compose.yml
 .vscode-server/
 .vscode-server/**
