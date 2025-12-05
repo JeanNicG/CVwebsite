@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Air Quality Monitor</h1>
+        
+        <div class="dashboard">
+            <div class="card" id="temp-card">
+                <div class="card-header">
+                    <h3>Temperature</h3>
+                </div>
+                <div class="value" id="temp-value">--</div>
+                <div class="unit">°C</div>
+            </div>
+            <div class="card" id="hum-card">
+                <div class="card-header">
+                    <h3>Humidity</h3>
+                </div>
+                <div class="value" id="hum-value">--</div>
+                <div class="unit">%</div>
+            </div>
+            <div class="card" id="co2-card">
+                <div class="card-header">
+                    <h3>CO₂</h3>
+                </div>
+                <div class="value" id="co2-value">--</div>
+                <div class="unit">ppm</div>
+            </div>
+            <div class="card" id="pm25-card">
+                <div class="card-header">
+                    <h3>PM2.5</h3>
+                </div>
+                <div class="value" id="pm25-value">--</div>
+                <div class="unit">μg/m³</div>
+            </div>
+            <div class="card" id="o3-card">
+                <div class="card-header">
+                    <h3>Ozone</h3>
+                </div>
+                <div class="value" id="o3-value">--</div>
+                <div class="unit">ppb</div>
+            </div>
+            <div class="card" id="tvoc-card">
+                <div class="card-header">
+                    <h3>TVOC</h3>
+                </div>
+                <div class="value" id="tvoc-value">--</div>
+                <div class="unit">ppb</div>
+            </div>
+        </div>
+        
+        <div class="last-update">
+            Last updated: <span id="last-update">--</span>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <h2>24-Hour Trends</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <canvas id="temp-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="hum-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="co2-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pm25-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="o3-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="tvoc-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

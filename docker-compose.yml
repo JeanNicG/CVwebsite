@@ -1,0 +1,46 @@
+services:
+  cvwebsite:
+    image: nginx:alpine
+    container_name: cvwebsite
+    restart: unless-stopped
+    volumes:
+      - /home/jean/docker/website/cvWebsite/html:/usr/share/nginx/html:ro
+    networks:
+      - web
+
+  airwebsite:
+    image: nginx:alpine
+    container_name: airwebsite
+    restart: unless-stopped
+    volumes:
+      - /home/jean/docker/website/airWebsite/html:/usr/share/nginx/html:ro
+    networks:
+      - web
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /home/jean/docker/website/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - cvwebsite
+      - airwebsite
+    networks:
+      - web
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
